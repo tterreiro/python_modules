@@ -14,3 +14,26 @@ class Plant:
         self.name = name
         self.height = height
         self.age = age
+
+    def get_info(self) -> None:
+        """Prints plant's name, height and age."""
+        print(f"Created: {self.name} ({self.height}cm, {self.age} days)")
+
+
+def ft_plant_factory() -> None:
+    """
+    Initializes plants inside the list and displays their attributes
+    """
+    inventory = (
+        Plant("Spathiphyllum", 10.0, 54), Plant("Zamioculcas", 67.0, 36),
+        Plant("Cannabis", 109.0, 98), Plant("Tulipa", 27, 21),
+        Plant("Anthurium", 75, 674), Plant("Bellis", 15, 49)
+    )
+    print("=== Plant Factory Output ===")
+    for plant in inventory:
+        plant.get_info()
+    print("\nTotal plants created:", len(inventory))
+
+
+if __name__ == "__main__":
+    ft_plant_factory()
