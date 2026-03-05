@@ -3,11 +3,6 @@
 class Plant:
     """
     Represents a plant in the garden.
-
-    Attributes:
-        name (str): The name of the plant.
-        height (float): Height in centimeters.
-        age (int): Age in days.
     """
     def __init__(self, name: str, height: float, age: int) -> None:
         """Initializes plant in the garden with name, height and age."""
@@ -24,15 +19,17 @@ def ft_plant_factory() -> None:
     """
     Initializes plants inside the list and displays their attributes
     """
-    inventory = (
+    inventory = [
         Plant("Spathiphyllum", 10.0, 54), Plant("Zamioculcas", 67.0, 36),
         Plant("Cannabis", 109.0, 98), Plant("Tulipa", 27, 21),
         Plant("Anthurium", 75, 674), Plant("Bellis", 15, 49)
-    )
+    ]
     print("=== Plant Factory Output ===")
+    count = 0
     for plant in inventory:
         plant.get_info()
-    print("\nTotal plants created:", len(inventory))
+        count += 1
+    print("\nTotal plants created:", count)
 
 
 if __name__ == "__main__":

@@ -3,16 +3,11 @@
 class SecurePlant:
     """
     Represents a plant in the garden.
-
-    Attributes:
-        name (str): The name of the plant.
-        height (float): Height in centimeters.
-        age (int): Age in days.
     """
     def __init__(self, name: str, height: float, age: int) -> None:
         """Initializes plant in the garden with name, height and age."""
         self.name = name
-        print(f"Plant created: {name.title()}")
+        print(f"Plant created: {name}")
         if height < 0:
             print(f"Invalid height input: {height}cm")
             self._height = 0
@@ -52,13 +47,13 @@ class SecurePlant:
 
     def __str__(self) -> str:
         """Defines what happens when you try to print(plant1)"""
-        return f"{self.name.title()} ({self.get_height()}cm, {self.get_age()}"
+        return f"{self.name} ({self.get_height()}cm, {self.get_age()}"
 
 
 def ft_garden_security() -> None:
     """Creates plant and tests everything"""
     print("=== Garden Security System ===")
-    plant1 = SecurePlant("rose", 53, 81)
+    plant1 = SecurePlant("Rose", 53, 81)
     plant1.set_height(25)
     plant1.set_age(30)
     plant1.set_height(-5)

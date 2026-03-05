@@ -63,7 +63,8 @@ class Garden:
     def add_plant(self, plant: Plant) -> None:
         """Adds plant to garden."""
         self.plants.append(plant)
-        print(f"Added {plant.name} to {self.name}'s garden")
+        if self != j_garden:
+            print(f"Added {plant.name} to {self.name}'s garden")
         self.plants_amount += 1
 
     def get_growth(self) -> int:
@@ -171,7 +172,7 @@ class GardenManager:
     @classmethod
     def create_garden_network(cls, admin_name: str) -> "GardenManager":
         """Factory method to initialize the global garden network."""
-        print("Beep Boop global garden network starting...\n")
+        print("=== Garden Managements System Demo ===\n")
         return cls(admin_name)
 
 
@@ -188,14 +189,11 @@ if __name__ == "__main__":
     GardenManager.GardenStats.grow_garden(c_garden, 6)
     GardenManager.GardenStats.garden_info(c_garden)
 
-    print("")
     j_garden.add_plant(Plant("Oak Tree", 264, 1302))
     j_garden.add_plant(FloweringPlant("Cannabis", 109, 98, "green"))
     j_garden.add_plant(PrizeFlower("Lavender", 12, 94, "purple", 41))
     j_garden.add_plant(PrizeFlower("Sunflower", 15, 25, "yellow", 67))
 
-    GardenManager.GardenStats.grow_garden(j_garden, 7)
-    GardenManager.GardenStats.garden_info(j_garden)
     print(
         f"Garden scores - {c_garden.name}: "
         f"{GardenManager.GardenStats.get_garden_score(c_garden):.0f}, "

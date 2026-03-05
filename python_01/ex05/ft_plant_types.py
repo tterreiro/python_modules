@@ -3,11 +3,6 @@
 class Plant:
     """
     Represents a plant in the garden and its development.
-
-    Attributes:
-        name (str): The name of the plant.
-        height (float): Height in centimeters.
-        age (int): Age in days.
     """
     def __init__(self, name: str, height: float, age: int) -> None:
         """Initializes plant in the garden with name, height and age."""
@@ -19,12 +14,6 @@ class Plant:
 class Flower(Plant):
     """
     Represents a plant of the flower type in the garden and its development.
-
-    Attributes:
-        name (str): The name of the plant.
-        height (float): Height in centimeters.
-        age (int): Age in days.
-        colour (str): The colour of the flower
     """
     def __init__(self, n: str, h: float, a: int, colour: str) -> None:
         """
@@ -35,15 +24,15 @@ class Flower(Plant):
 
     def bloom(self) -> None:
         """Ability to bloom (depending on the colour)"""
-        if self.colour.lower() == "grey":
-            print(self.name.title(), "is blooming beau-, wait.. is it dead?")
+        if self.colour == "grey":
+            print(self.name, "is blooming beau-, wait.. is it dead?")
         else:
-            print(self.name.title(), "is blooming beautifully!")
+            print(self.name, "is blooming beautifully!")
 
     def get_info(self) -> None:
         """Displays plant information and executes its unique ability"""
         print(
-            f"{self.name.title()} (Flower): {self.height:.1f}cm, "
+            f"{self.name} (Flower): {self.height:.0f}cm, "
             f"{self.age} days, {self.colour} colour"
         )
         self.bloom()
@@ -52,12 +41,6 @@ class Flower(Plant):
 class Tree(Plant):
     """
     Represents a plant of the flower type in the garden and its development.
-
-    Attributes:
-        name (str): The name of the plant.
-        height (float): Height in centimeters.
-        age (int): Age in days.
-        trunk (float): Tree's trunk diameter in square meters
     """
     def __init__(self, name: str, height: float, age: int, dia: float) -> None:
         """
@@ -71,13 +54,13 @@ class Tree(Plant):
         Ability to produce shade depending on the trunk size and tree height.
         """
         shade = self.trunk + (self.height / 18)
-        print(f"{self.name.title()} provides {shade:.0f} sq meters of shade")
+        print(f"{self.name} provides {shade:.0f} sq meters of shade")
 
     def get_info(self) -> None:
         """Displays plant information and executes its unique ability"""
         print(
-            f"{self.name.title()} (Tree): {self.height:.1f}cm, "
-            f"{self.age} days, {self.trunk:.1f} diameter"
+            f"{self.name} (Tree): {self.height:.0f}cm, "
+            f"{self.age} days, {self.trunk:.0f}cm diameter"
         )
         self.produce_shade()
 
@@ -85,13 +68,6 @@ class Tree(Plant):
 class Vegetable(Plant):
     """
     Represents a plant of the flower type in the garden and its development.
-
-    Attributes:
-        name (str): The name of the plant.
-        height (float): Height in centimeters.
-        age (int): Age in days.
-        harv (str): The harvest season of the vegetable.
-        nutri (str): The vegetable's nutritional value.
     """
     def __init__(self, n: str, h: float, a: int, har: str, nutri: str) -> None:
         """
@@ -104,12 +80,12 @@ class Vegetable(Plant):
 
     def show_nutri(self) -> None:
         """Displays nutritional value"""
-        print(self.name.title(), "is rich in", self.nutri)
+        print(self.name, "is rich in", self.nutri)
 
     def get_info(self) -> None:
         """Displays plant information and executes its unique ability"""
         print(
-            f"{self.name.title()} (Vegetable): {self.height:.1f}cm, "
+            f"{self.name} (Vegetable): {self.height:.0f}cm, "
             f"{self.age} days, {self.harv} harvest"
         )
         self.show_nutri()
@@ -119,13 +95,13 @@ def ft_plant_types() -> None:
     """Creates a list with all the plants and displays their info"""
     print("=== Garden Plant Types ===")
     inventory = [
-        Flower("rose", 25, 30, "red"), Flower("lavender", 12, 94, "grey"),
-        Tree("oak", 500, 1825, 50), Tree("maple", 432, 1375, 35),
-        Vegetable("tomato", 80, 90, "summer", "vitamin C"),
-        Vegetable("lettuce", 101, 73, "spring", "vitamin A")
+        Flower("Rose", 25, 30, "red"), Flower("Lavender", 12, 94, "grey"),
+        Tree("Oak", 500, 1825, 50), Tree("Maple", 432, 1375, 35),
+        Vegetable("Tomato", 80, 90, "summer", "vitamin C"),
+        Vegetable("Lettuce", 101, 73, "spring", "vitamin A")
     ]
     for planty in inventory:
-        print("\n")
+        print("")
         planty.get_info()
 
 

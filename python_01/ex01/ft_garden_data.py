@@ -4,11 +4,6 @@
 class Plant:
     """
     Represents a plant in the garden.
-
-    Attributes:
-        name (str): The name of the plant.
-        height (float): Height in centimeters.
-        age (int): Age in days.
     """
 
     def __init__(self, name: str, height: float, age: int) -> None:

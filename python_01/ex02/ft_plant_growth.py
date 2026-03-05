@@ -4,11 +4,6 @@
 class Plant:
     """
     Represents a plant in the garden and its development.
-
-    Attributes:
-        name (str): The name of the plant.
-        height (float): Height in centimeters.
-        age (int): Age in days.
     """
     def __init__(self, name: str, height: float, age: int) -> None:
         """Initializes plant in the garden with name, height and age."""
@@ -19,7 +14,7 @@ class Plant:
 
     def get_info(self) -> None:
         """Prints plant's name, height and age."""
-        print(f"{self.name.title()}: {self.height:.1f}cm, {self.age} days old")
+        print(f"{self.name}: {self.height:.1f}cm, {self.age} days old")
 
     def grow(self) -> None:
         """Calculates growth based on the current height-to-age ratio."""
@@ -33,22 +28,24 @@ class Plant:
         self.age += time
 
 
-def ft_garden_growth() -> None:
+def ft_plant_growth() -> None:
     """Displays a weekly summary of the plant's growth."""
     spathiphyllum = Plant("Spathiphyllum", 10.0, 54)
     zamioculcas = Plant("Zamioculcas", 67.0, 36)
     cannabis = Plant("Cannabis", 109.0, 98)
     inventory = [spathiphyllum, zamioculcas, cannabis]
-    for i in range(7):
-        print(f"\n=== Day {i + 1} ===")
-        for plant in inventory:
+    print("\n=== Day 1 ===")
+    for plant in inventory:
+        plant.get_info()
+    print("\n=== Day 7 ===")
+    for plant in inventory:
+        for i in range(7):
             plant.grow()
             plant.get_older(1)
-            plant.get_info()
-            if i == 6:
-                growth = plant.height - plant.initial_height
-                print(f"Growth this week: +{growth:.1f}cm\n")
+        plant.get_info()
+        growth = plant.height - plant.initial_height
+        print(f"Growth this week: +{growth:.1f}cm\n")
 
 
 if __name__ == "__main__":
-    ft_garden_growth()
+    ft_plant_growth()
