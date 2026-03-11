@@ -3,7 +3,6 @@ import sys
 
 
 def ft_command_quest() -> None:
-    """Parses and displays command-line arguments."""
     print("=== Command Quest ===")
     if len(sys.argv) <= 1:
         print("No arguments provided!")

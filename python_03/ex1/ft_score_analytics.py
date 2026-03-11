@@ -3,7 +3,6 @@ import sys
 
 
 def ft_score_analytics() -> None:
-    """Processes player scores from the command line to generate analytics."""
     print("=== Player Score Analytics ===\n")
     if len(sys.argv) <= 1:
         print(

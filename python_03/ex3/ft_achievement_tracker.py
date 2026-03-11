@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 def ft_achievement_tracker() -> None:
-    """Tracks and analyzes unique player achievements using set operations."""
     print("=== Achievement Tracker System ===")
     puffy = {'first_kill', 'level_10', 'treasure_hunter', 'speed_demon'}
     jeffy = {'first_kill', 'level_10', 'boss_slayer', 'collector'}

@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 class Plant:
     """
     Represents a plant in the garden.

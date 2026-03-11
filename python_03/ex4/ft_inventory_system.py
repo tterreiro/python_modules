@@ -3,7 +3,6 @@ import sys
 
 
 def inv_parse() -> dict:
-    """Parses command-line arguments into an inventory dictionary."""
     inventory = {}
     for item in sys.argv[1:]:
         tmp = item.split(":")
@@ -18,7 +17,6 @@ def inv_parse() -> dict:
 
 
 def ft_inventory_system() -> None:
-    """Analyzes game inventory and generates a status report."""
     if len(sys.argv) > 1:
         print("=== Inventory System Analysis ===")
         inventory = inv_parse()

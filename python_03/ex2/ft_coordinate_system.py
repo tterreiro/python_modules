@@ -4,12 +4,10 @@ import math
 
 
 def calc_distance(b: tuple, e: tuple) -> float:
-    """Calculates the Euclidean distance between two 3D coordinates."""
     return math.sqrt((e[0]-b[0])**2 + (e[1]-b[1])**2 + (e[2]-b[2])**2)
 
 
 def ft_coordinate_system() -> None:
-    """Coordinates the creation, parsing, and analysis of 3D game positions."""
     print("=== Game Coordinate System ===\n")
     spawn = (10, 20, 5)
     zero = (0, 0, 0)

@@ -3,9 +3,6 @@ from typing import Generator
 
 
 def game_event_generator(count: int) -> Generator[dict[str, any], None, None]:
-    """
-    Produces a stream of game events using deterministic pseudo-random math.
-    """
     players = ["jeffy", "charlie", "bob", "george", "john pork"]
     act = [
         "killed monster", "found treasure", "leveled up",
@@ -26,7 +23,6 @@ def game_event_generator(count: int) -> Generator[dict[str, any], None, None]:
 
 
 def fibonacci_gen() -> Generator[int, None, None]:
-    """Generates the Fibonacci sequence up to 10 iterations."""
     a, b = 0, 1
     count = 0
     while count < 10:
@@ -36,7 +32,6 @@ def fibonacci_gen() -> Generator[int, None, None]:
 
 
 def prime_gen() -> Generator[int, None, None]:
-    """Generates the first 5 prime numbers."""
     n = 2
     count = 0
     while count < 5:
@@ -52,9 +47,6 @@ def prime_gen() -> Generator[int, None, None]:
 
 
 def ft_data_stream() -> None:
-    """
-    Processes the game event stream and displays generator demonstrations.
-    """
     print("=== Game Data Stream Processor ===\n")
     total_events = 0
     high_level = 0
