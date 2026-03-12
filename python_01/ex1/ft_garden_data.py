@@ -27,5 +27,5 @@ def ft_garden_data() -> None:
 
 
 if __name__ == "__main__":
-    print("\n=== Garden Plant Registry")
+    print("=== Garden Plant Registry ===")
     ft_garden_data()

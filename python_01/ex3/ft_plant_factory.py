@@ -20,8 +20,8 @@ def ft_plant_factory() -> None:
     Initializes plants inside the list and displays their attributes
     """
     inventory = [
-        Plant("Spathiphyllum", 10.0, 54), Plant("Zamioculcas", 67.0, 36),
-        Plant("Cannabis", 109.0, 98), Plant("Tulipa", 27, 21),
+        Plant("Spathiphyllum", 10, 54), Plant("Zamioculcas", 67, 36),
+        Plant("Cannabis", 109, 98), Plant("Tulipa", 27, 21),
         Plant("Anthurium", 75, 674), Plant("Bellis", 15, 49)
     ]
     print("=== Plant Factory Output ===")

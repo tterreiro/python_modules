@@ -147,9 +147,8 @@ class GardenManager:
                 score += x.height
             return score
 
-    def __init__(self, owner: str) -> None:
-        """Initializes the GardenManager with an owner and a garden registry"""
-        self.owner = owner
+    def __init__(self) -> None:
+        """Initializes the GardenManager with a garden registry"""
         self.gardens = {}
 
     def create_garden(self, garden_name: str) -> Garden:
@@ -170,14 +169,14 @@ class GardenManager:
         print(self.gardens)
 
     @classmethod
-    def create_garden_network(cls, admin_name: str) -> "GardenManager":
+    def create_garden_network(cls) -> "GardenManager":
         """Factory method to initialize the global garden network."""
         print("=== Garden Managements System Demo ===\n")
-        return cls(admin_name)
+        return cls()
 
 
 if __name__ == "__main__":
-    GM = GardenManager.create_garden_network("admin")
+    GM = GardenManager.create_garden_network()
 
     c_garden = GM.create_garden("Charlie")
     j_garden = GM.create_garden("Jeffy")
