@@ -14,19 +14,24 @@ def ft_coordinate_system() -> None:
     distance = calc_distance(zero, spawn)
     print(f"Position created: {spawn}")
     print(f"Distance between {zero} and {spawn}: {distance:.2f}\n")
-    print(f'Parsing coordinates: "{sys.argv[1]}"')
-    tmp_tpl = sys.argv[1].split(",")
-    tmp_lst = []
-    for x in tmp_tpl:
-        try:
-            tmp_lst.append(int(x))
-        except ValueError as e:
-            print(f"Error parsing coordinates: {e}")
-            print(f"Error details - Type: ValueError, Args: {e.args}\n")
-    player = tuple(tmp_lst)
-    print(f"Parsed positions: {player}")
-    distance = calc_distance(zero, player)
-    print(f"Distance between {zero} and {player}: {distance:.2f}\n")
+
+    try:
+        print(f'Parsing coordinates: "{sys.argv[1]}"')
+        tmp_tpl = sys.argv[1].split(",")
+        tmp_lst = []
+        for x in tmp_tpl:
+            try:
+                tmp_lst.append(int(x))
+            except ValueError as e:
+                print(f"Error parsing coordinates: {e}")
+                print(f"Error details - Type: ValueError, Args: {e.args}\n")
+        player = tuple(tmp_lst)
+        print(f"Parsed positions: {player}")
+        distance = calc_distance(zero, player)
+        print(f"Distance between {zero} and {player}: {distance:.1f}\n")
+    except IndexError:
+        print("Invalid arguments.")
+        return
     print('Parsing invalid coordinates: "abc,def,ghi"')
     tmp_tpl = ("abc", "def", "ghi")
     tmp_lst = []

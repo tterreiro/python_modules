@@ -17,12 +17,16 @@ def ft_score_analytics() -> None:
                 scores.append(int(arg))
             except ValueError:
                 print(f"Nuh uh, {arg} is not a number!")
-        quantity_s = len(scores)
-        total_s = sum(scores)
-        max_s = max(scores)
-        min_s = min(scores)
-        average_s = total_s / quantity_s
-        range_s = max_s - min_s
+        try:
+            quantity_s = len(scores)
+            total_s = sum(scores)
+            max_s = max(scores)
+            min_s = min(scores)
+            average_s = total_s / quantity_s
+            range_s = max_s - min_s
+        except ValueError:
+            print("\nNo valid arguments received.")
+            return
         print(f"\nScores processed: {scores}")
         print(f"Total players: {quantity_s}")
         print(f"Total score: {total_s}")

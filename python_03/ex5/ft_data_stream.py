@@ -84,13 +84,15 @@ def ft_data_stream() -> None:
     fib_nbr = []
     for num in fib_gen:
         fib_nbr.append(str(num))
-    print(f"Fibonacci sequence (first 10): {', '.join(fib_nbr)}")
+    print("Fibonacci sequence (first 10): ", end="")
+    print(*fib_nbr, sep=', ')
 
     prime_g = prime_gen()
     prime_nbr = []
     for num in prime_g:
         prime_nbr.append(str(num))
-    print(f"Prime numbers (first 5): {', '.join(prime_nbr)}")
+    print("Prime numbers (first 5): ", end="")
+    print(*prime_nbr, sep=', ')
 
 
 if __name__ == "__main__":

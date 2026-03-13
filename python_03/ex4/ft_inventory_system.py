@@ -11,15 +11,19 @@ def inv_parse() -> dict:
             if tmp[1] < 1:
                 raise ValueError
             inventory.update(dict([tmp]))
-        except (ValueError, IndexError):
-            print(f"This aint right, son. (by this I mean {item})")
+        except (ValueError, IndexError, KeyError) as e:
+            raise e.__class__(f"This aint right, son. (by this I mean {item})")
     return inventory
 
 
 def ft_inventory_system() -> None:
     if len(sys.argv) > 1:
         print("=== Inventory System Analysis ===")
-        inventory = inv_parse()
+        try:
+            inventory = inv_parse()
+        except (ValueError, IndexError, KeyError) as e:
+            print(e)
+            exit(1)
         item_amnt = 0
         for x in inventory.values():
             item_amnt += x
@@ -56,11 +60,14 @@ def ft_inventory_system() -> None:
         print(f"Scarce: {scarce}")
 
         print("\n=== Management Suggestions ===")
-        print(f"Restock needed: {','.join(restock)}\n")
+        print("Restock needed: ", end='')
+        print(*restock, sep=', ')
 
         print("=== Dictionary Properties Demo ===")
-        print(f"Dictionary keys: {', '.join(inventory.keys())}")
-        print(f"Dictionary values: {', '.join(map(str, inventory.values()))}")
+        print("Dictionary keys: ", end='')
+        print(*inventory.keys(), sep=', ')
+        print("Dictionary values: ", end='')
+        print(*inventory.values(), sep=", ")
         check_item = 'sword'
         print(
             "Sample lookup - "

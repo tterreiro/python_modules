@@ -1,22 +1,18 @@
 #!/usr/bin/env python3
 
 class GardenError(Exception):
-    """Garden error"""
     pass
 
 
 class PlantError(GardenError):
-    """Plant error"""
     pass
 
 
 class WaterError(GardenError):
-    """Water error"""
     pass
 
 
 def test_error() -> None:
-    """Tests custom exception"""
     print("=== Custom Garden Errors Demo ===\n")
 
     print("Testing PlantError...")

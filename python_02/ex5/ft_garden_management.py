@@ -1,30 +1,24 @@
 #!/usr/bin/env python3
 
 class GardenError(Exception):
-    """Garden error"""
     pass
 
 
 class PlantError(GardenError):
-    """Plant error"""
     pass
 
 
 class WaterError(GardenError):
-    """Water error"""
     pass
 
 
 class Plant:
-    """Represents a plant"""
     def __init__(self, name: str, water_level: int, sunlight: int) -> None:
-        """Initializes plant"""
         self.name = name
         self.water_l = water_level
         self.sun_h = sunlight
 
     def check_health(self) -> str:
-        """Checks for any invalid value"""
         water = self.water_l
         if self.water_l > 10:
             raise ValueError(f"Water level {self.water_l} too high (max 10)")
@@ -38,23 +32,19 @@ class Plant:
 
 
 class GardenManager:
-    """Manages garden"""
     def __init__(self) -> None:
-        """Initializes garden"""
         self.plants = []
         self.water_tank = 15
 
     def add_plant(self, plant: Plant) -> None:
-        """Adds plant to garden's plant list"""
         if not plant.name:
-            raise ValueError("Plant name cannot be empty!")
+            raise PlantError("Plant name cannot be empty!")
         if plant.name in self.plants:
-            raise ValueError("Plant already in the garden!")
+            raise PlantError("Plant already in the garden!")
         self.plants.append(plant)
         print(f"Added {plant.name} successfully!")
 
     def water_plants(self, quantity: int) -> None:
-        """Waters plants."""
         print("Opening watering system..")
         for plant in self.plants:
             if self.water_tank < quantity:
@@ -64,7 +54,6 @@ class GardenManager:
             print(f"Watering {plant.name} - success")
 
     def check_plant_health(self) -> None:
-        """Checks for any invalid value"""
         for plant in self.plants:
             try:
                 check = plant.check_health()
@@ -74,7 +63,6 @@ class GardenManager:
 
 
 def test_garden_management() -> None:
-    """Tests the class functions"""
     print("=== Garden Management System ===\n")
     gm = GardenManager()
     plants = [Plant("tomato", 5, 8), Plant("lettuce", 15, 7), Plant("", 5, 5)]
@@ -83,7 +71,7 @@ def test_garden_management() -> None:
     for plant in plants:
         try:
             gm.add_plant(plant)
-        except ValueError as e:
+        except PlantError as e:
             print(f"Error adding plant: {e}\n")
 
     print("\nWatering plants...")

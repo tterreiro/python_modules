@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 
 class InvalidPlant(Exception):
-    """Custom exception for invalid plants"""
     pass
 
 
 def water_plants(plant_list: list) -> None:
-    """Waters plants and ensures cleanup via finally block."""
     print("Opening watering system..")
     plants = ["tomato", "lettuce", "carrot"]
     try:
@@ -21,7 +19,6 @@ def water_plants(plant_list: list) -> None:
 
 
 def test_watering_system() -> None:
-    """Demonstrates normal operations and error scenarios."""
     print("=== Garden Watering System ===\n")
     plant_list1 = ["tomato", "lettuce", "carrot"]
     plant_list2 = ["tomato", "truck", "carrot"]
