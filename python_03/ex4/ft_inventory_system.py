@@ -9,7 +9,7 @@ def inv_parse() -> dict:
         try:
             tmp[1] = int(tmp[1])
             if tmp[1] < 1:
-                raise ValueError
+                raise ValueError()
             inventory.update(dict([tmp]))
         except (ValueError, IndexError, KeyError) as e:
             raise e.__class__(f"This aint right, son. (by this I mean {item})")
@@ -63,15 +63,19 @@ def ft_inventory_system() -> None:
         print("Restock needed: ", end='')
         print(*restock, sep=', ')
 
-        print("=== Dictionary Properties Demo ===")
+        print("\n=== Dictionary Properties Demo ===")
         print("Dictionary keys: ", end='')
         print(*inventory.keys(), sep=', ')
         print("Dictionary values: ", end='')
         print(*inventory.values(), sep=", ")
-        check_item = 'sword'
+        check_item = bool(inventory.get('sword'))
         print(
             "Sample lookup - "
-            f"{check_item} in inventory: {check_item in inventory}")
+            f"sword in inventory: {check_item}")
+    else:
+        print(
+            "No items provided.\nUsage : python3 ft_inventory_system.py"
+            " <item1>:<quantity> <item2>:<quantity>...")
 
 
 if __name__ == "__main__":
