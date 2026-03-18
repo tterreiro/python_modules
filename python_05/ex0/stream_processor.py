@@ -22,7 +22,7 @@ class NumericProcessor(DataProcessor):
 
     def process(self, data: Any) -> str:
         if self.validate(data) is False:
-            raise ValueError("Validation failed: closing program...")
+            raise ValueError("Validation failed!")
         return (
             f"Processed {len(data)} numeric values, "
             f"sum={sum(data)}, avg={(sum(data)/len(data)):.1f}")
