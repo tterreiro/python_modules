@@ -184,7 +184,7 @@ class DataStream():
 
     def output_pipeline(self, nb: int, plugin: ExportPlugin) -> None:
         if not self.processors:
-            print("No processor, no data")
+            print("No processor found, no data")
         else:
             for processor in self.processors:
                 data = []

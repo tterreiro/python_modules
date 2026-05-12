@@ -149,11 +149,11 @@ def data_processor() -> None:
         print("\nInitializing Log Processor...")
         log = LogProcessor()
         print(f"Trying to validate input 'Hello': {log.validate('Hello')}")
-        log_data = [{'log_level': 'NOTICE', 'log_message': 'Connection to server'},
+        data = [{'log_level': 'NOTICE', 'log_message': 'Connection to server'},
                 {'log_level': 'ERROR', 'log_message': 'Unauthorized access!!'}]
-        print(f'Processing Data: "{log_data}"')
+        print(f'Processing Data: "{data}"')
         print("Extracting 2 values...")
-        log.ingest(log_data)
+        log.ingest(data)
         for _ in range(2):
             index, value = log.output()
             print(f"Log entry {index}: {value}")

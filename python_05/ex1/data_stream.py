@@ -177,7 +177,7 @@ def data_processor() -> None:
         ],
         42,
         ['Hi', 'five']]
-    Processors = [
+    processors = [
                                         NumericProcessor(),
                                         TextProcessor(),
                                         LogProcessor()]
@@ -185,13 +185,13 @@ def data_processor() -> None:
     print("Initialize Data Stream...")
     data_stream.print_processors_stats()
     print("\nRegistering Numeric Processor\n")
-    data_stream.register_processor(Processors[0])
+    data_stream.register_processor(processors[0])
     print(f"Send first batch of data on stream: {batch}")
     data_stream.process_stream(batch)
     data_stream.print_processors_stats()
     print("\nRegistering other data processors\n")
-    data_stream.register_processor(Processors[1])
-    data_stream.register_processor(Processors[2])
+    data_stream.register_processor(processors[1])
+    data_stream.register_processor(processors[2])
     print("Send same batch again")
     data_stream.process_stream(batch)
     data_stream.print_processors_stats()
@@ -199,11 +199,11 @@ def data_processor() -> None:
         "\nConsume some elements from the data processors:"
         " Numeric 3, Text 2, Log 1")
     for _ in range(3):
-        Processors[0].output()
+        processors[0].output()
     for _ in range(2):
-        Processors[1].output()
+        processors[1].output()
     for _ in range(1):
-        Processors[2].output()
+        processors[2].output()
     data_stream.print_processors_stats()
 
 
