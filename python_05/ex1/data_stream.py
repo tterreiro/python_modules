@@ -164,7 +164,7 @@ class DataStream():
                     f" remaining {stats[1]} on processor")
 
 
-def data_processor():
+def data_processor() -> None:
     print("=== Code Nexus - Data Stream ===\n")
     batch = [
         'Hello world',
