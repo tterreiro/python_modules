@@ -7,4 +7,4 @@ if __name__ == "__main__":
     print("Using grimore module directly")
     igr = "Earth wind and FirE"
     print("Testing record light spell:",
-          alchemy.grimoire.light_spellbook.light_spell_record("Fantasy", igr))
+          alchemy.grimoire.light_spell_record("Fantasy", igr))

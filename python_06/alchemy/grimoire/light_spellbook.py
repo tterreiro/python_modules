@@ -3,7 +3,7 @@ def light_spell_ingredients() -> list[str]:
 
 
 def light_spell_record(spell_name: str, ingredients: str) -> str:
-    from .validator_ingredients import validate_ingredients
+    from .light_validator import validate_ingredients
     validation_result = validate_ingredients(ingredients)
     if "INVALID" in validation_result:
         return f"Spell rejected: {spell_name} ({validation_result})"
