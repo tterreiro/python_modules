@@ -13,7 +13,7 @@ if __name__ == "__main__":
     }
 
     missing_pkgs = [tool for tool in dependencies.keys()
-                     if not util.find_spec(tool)]
+                    if not util.find_spec(tool)]
 
     for pkg_name, pkg_desc in dependencies.items():
         if pkg_name in missing_pkgs:
@@ -38,17 +38,27 @@ if __name__ == "__main__":
 
     print("\nAnalyzing Matrix data...")
     print("Processing 1000 data points...")
-    matrix_data = np.random.randn(1000)
-    df = pd.DataFrame(matrix_data, columns=["Signal_Value"])
+    x_data = np.random.uniform(1, 10, 50)
+    y_data = np.random.uniform(1, 10, 50)
 
-    plt.figure(figsize=(10, 6))
-    plt.hist(df["Signal_Value"], bins=40, color="green",
-             edgecolor="black", alpha=0.7)
-    plt.title("Matrix Signal Frequency Distribution")
-    plt.xlabel("Signal Amplitude")
-    plt.ylabel("Frequency")
-    plt.grid(axis="y", linestyle="--", alpha=0.7)
-    plt.savefig("matrix_analysis.png")
+    df = pd.DataFrame({"x": x_data, "y": y_data})
+
+    plt.figure(figsize=(6, 6))
+    ax = plt.gca()
+
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_linewidth(5)
+    ax.spines['bottom'].set_linewidth(5)
+
+    plt.scatter(df["x"], df["y"], color="#5a5a5a", s=40)
+    plt.axhline(y=5.5, color="#fca5a5", linestyle="-", linewidth=5, alpha=0.8)
+
+    plt.title("No Correlation", fontsize=16, fontweight="bold", y=-0.1)
+    plt.xticks([])
+    plt.yticks([])
+
+    plt.savefig("matrix_analysis.png", bbox_inches='tight')
     plt.show()
     plt.close()
 
