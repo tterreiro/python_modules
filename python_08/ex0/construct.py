@@ -9,7 +9,7 @@ def outside_matrix() -> None:
     print(f"Current python: {sys.executable}")
     print("Virtual Environment: None detected\n")
     print(
-        "WARNING: You're in the global environment!"
+        "WARNING: You're in the global environment!\n"
         "The machines can see everything you install.\n")
     print(
         "To enter the construct, run:\n"

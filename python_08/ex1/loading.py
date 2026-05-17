@@ -43,6 +43,7 @@ if __name__ == "__main__":
 
     df = pd.DataFrame({"x": x_data, "y": y_data})
 
+    print("Generating visualization...")
     plt.figure(figsize=(6, 6))
     ax = plt.gca()
 
@@ -62,5 +63,4 @@ if __name__ == "__main__":
     plt.show()
     plt.close()
 
-    print("Generating visualization...")
     print("Analysis complete! Results saved to: matrix_analysis.png")
