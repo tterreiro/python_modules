@@ -11,7 +11,6 @@ except ImportError:
 
 
 def check_git_security() -> bool:
-    """Read .gitignore to programmatically confirm .env is concealed."""
     gitignore_path: str = ".gitignore"
     if not os.path.exists(gitignore_path):
         return False
@@ -26,10 +25,9 @@ def check_git_security() -> bool:
 
 
 def oracle() -> None:
-    """Load configuration values and validate environment profiles cleanly."""
     load_dotenv()
 
-    raw_mode: str | None = os.environ.get("MATRIX_MODE")
+    raw_mode = os.environ.get("MATRIX_MODE")
     if raw_mode is None:
         print("[CONFIG]: MATRIX_MODE undefined. Defaulting to development.")
         matrix_mode = "development"
@@ -41,12 +39,11 @@ def oracle() -> None:
               "MATRIX_MODE can only be 'production' or 'development'.")
         sys.exit(1)
 
-    db_url: str | None = os.environ.get("DATABASE_URL")
-    api_key: str | None = os.environ.get("API_KEY")
-    log_lvl: str | None = os.environ.get("LOG_LEVEL")
-    zion_endpoint: str | None = os.environ.get("ZION_ENDPOINT")
+    db_url = os.environ.get("DATABASE_URL")
+    api_key = os.environ.get("API_KEY")
+    log_lvl = os.environ.get("LOG_LEVEL")
+    zion_endpoint = os.environ.get("ZION_ENDPOINT")
 
-    # Validate missing configs
     missing_configs: list[str] = []
     if not db_url:
         missing_configs.append("DATABASE_URL")
