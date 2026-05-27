@@ -11,7 +11,7 @@ except ImportError:
 
 
 def check_git_security() -> bool:
-    gitignore_path: str = ".gitignore"
+    gitignore_path = ".gitignore"
     if not os.path.exists(gitignore_path):
         return False
     try:
@@ -44,7 +44,7 @@ def oracle() -> None:
     log_lvl = os.environ.get("LOG_LEVEL")
     zion_endpoint = os.environ.get("ZION_ENDPOINT")
 
-    missing_configs: list[str] = []
+    missing_configs = []
     if not db_url:
         missing_configs.append("DATABASE_URL")
     if not api_key:
