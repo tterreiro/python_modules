@@ -20,7 +20,7 @@ def main() -> None:
     """
     Execute validation demonstration for valid and invalid space stations.
     """
-    print("Space Station Data Validation")
+    print("\nSpace Station Data Validation")
     print("========================================")
 
     try:
