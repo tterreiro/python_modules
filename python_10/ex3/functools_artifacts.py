@@ -13,7 +13,7 @@ def spell_reducer(spells: list[int], operation: str) -> int:
     if not spells:
         return 0
     if operation not in operations.keys():
-        raise ValueError("Unkown operation.")
+        raise ValueError("Unknown operation.")
     return reduce(operations[operation], spells)
 
 
@@ -67,7 +67,7 @@ if __name__ == "__main__":
         print(e)
     print("\nTesting partial enchanter...")
 
-    def base_enchantment(power: str, element: str, target: str) -> str:
+    def base_enchantment(power: int, element: str, target: str) -> str:
         return f"{target} got hit with {element} ball for {power} damage"
     ele_enchants = partial_enchanter(base_enchantment)
     print(
